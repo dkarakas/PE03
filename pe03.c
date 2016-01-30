@@ -53,11 +53,11 @@ int main(int argc, char * * argv)
      if(intg_arg.n_intervals < 1)
        intg_arg.n_intervals = 1;
      if(atoi(argv[1])==1){
-       intg_arg.func_to_be_integrated = unknow_function_1;
+       intg_arg.func_to_be_integrated = unknown_function_1;
      }else(atoi(argv[2])==2){
-       intg_arg.func_to_be_integrated = unknow_function_2;
+       intg_arg.func_to_be_integrated = unknown_function_2;
      }else(atoi(argv[3])==3){
-       intg_arg.func_to_be_integrated = unknow_function_3;
+       intg_arg.func_to_be_integrated = unknown_function_3;
      }else
        return EXIT_FAILURE;
    }

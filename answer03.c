@@ -46,7 +46,43 @@
 //
 double simpson_numerical_integration(integrand intg_arg)
 {
-   double integral = 0.0;
+  double integral = 0.0;
+  double dx = 0; //small increment
+  int negative_integral = 1; //this will be converted to -1 if we switch the boundaries
+  int step = 0; //this will be the counter for the for loop when calculating the integral
+  double lower_limit = intg_arg.lower_limit;
+  double upper_limit = intg_arg.upper_limit;
+  double n_intervals = intg_arg.n_intervals;
+  void *func = intg_arg.func_to_be_integrated;
+  double current_hight = 0;
 
-   return integral;
+  //check if the limits are correct
+  if(lower_limit > upper_limit){
+    int help = 0;//help variable for swaping variables
+    
+    //swaping variables
+    
+    help = lower_limit;
+    lower_limit = upper_limit;
+    upper_limit = help;
+
+    //makes sure the integral is turned negative if we switch the boungaries
+    negative_integral = -1; 
+  }
+  
+  //initializes the current hight
+  
+  current_hight = lower_limit;
+  
+  //caculates the stap according to the intervals
+  
+  dx = (upper_limit - lower_limit) / n_intervals; 
+  
+  for(step = 0; step < n_intervals; step++){
+    integral += (dx/6) * (func(current_hight)+4*(func(a+dx/2)+func(current_hight+dx)));
+    //updates the current hight
+    current_hight = current_hight + dx;
+  } 
+
+  return ((double)negative_integral*integral);
 }

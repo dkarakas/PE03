@@ -9,9 +9,9 @@
 
 typedef struct _integrand {
    double lower_limit;
-
-
-
+   double upper_limit;
+   int n_intervals;
+   double (*func_to_be_integrated)(double);
 } integrand;
 
 /* define your structure integrand above this line */

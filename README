@@ -2,6 +2,7 @@ In this exercise, you will implement yet another way to
 perform numerical integration of a function (unknown to you).
 This exercise is related to PE02 and PA01.
 
+
 // ~ Learning Goals ~ //
 
 You should learn:

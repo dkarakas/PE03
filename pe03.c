@@ -42,10 +42,25 @@ int main(int argc, char * * argv)
 {
    double integral = 0.0;
    integrand intg_arg; 
-
-   // you job is to fill in the fields of intg_arg before calling
-   // simpson_numerical_integration
-
+   
+   if(argc !=5){
+     return EXIT_FAILURE;
+   }
+   else{
+     intg_arg.lower_limit = atof(argv[3]);
+     intg_arg.upper_limit = atof(argv[4]);
+     intg_arg.n_intervals = atoi(argv[5]);
+     if(intg_arg.n_intervals < 1)
+       intg_arg.n_intervals = 1;
+     if(atoi(argv[1])==1){
+       intg_arg.func_to_be_integrated = unknow_function_1;
+     }else(atoi(argv[2])==2){
+       intg_arg.func_to_be_integrated = unknow_function_2;
+     }else(atoi(argv[3])==3){
+       intg_arg.func_to_be_integrated = unknow_function_3;
+     }else
+       return EXIT_FAILURE;
+   }
    integral = simpson_numerical_integration(intg_arg);
 
    printf("%.10e\n", integral);
